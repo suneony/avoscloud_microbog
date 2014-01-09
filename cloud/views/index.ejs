@@ -1,0 +1,36 @@
+<%if(!locals.vary){%>
+<div class="jumbotron">
+<h1>Welcome to Microblog</h1>
+<p>Microblog is a system based on NodeJS and AVOSCloud</p>
+<p>
+	<a href="/login" title="" class="btn btn-primary btn-large">login</a>
+	<a href="/reg" title="" class="btn btn-default btn-large">register</a>
+</p>
+</div>
+<%}else{%>
+<form action="/post" method="post" accept-charset="utf-8" class="well form-inline center" style="text=align:center;">
+	<div class="form-group" style="width:90%;">
+		<input type="text" name="post" class="form-control" value="" placeholder="我要发言">
+	</div>	
+	<div class="form-group">
+		<button type="submit" class="btn btn-success form-control" style="margin-right:0px;"><i class="icon-comment icon-white">发言</i> </button>
+	</div>
+</form>
+<%}%>
+<%posts.forEach(function(post,index){
+
+	if(index%3==0){%>
+	<div class="row">
+
+<%}%>
+<div class="col-md-4 jumbotron" style="width:30%;height:200px;;margin-left:30px;margin-top:20px;">
+<h2><a href="/u/<%=post.get('user')%>" title=""><%=post.get('user')%></a>说</h2>
+<p><%=post.get('body')%></p>
+</div>
+<%if(index%3==2){%>
+</div>
+<%}%>
+<%})%>
+<%if(posts.length%3!=0){%>
+</div>
+<%}%>

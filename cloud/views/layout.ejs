@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%=title%>-Microblog</title>
+	<link rel='stylesheet' type="text/css" href='/stylesheets/bootstrap.css'/>
+	<style type='text/css'>
+	body{
+		padding-top:60px;
+		padding-bottom: 40px;
+	}
+	footer{
+		padding-bottom: 40px;
+	}
+	</style>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-theme.css"/>
+</head>
+<body>
+	<div class="navbar navbar-default navbar-fix-top" role="navigation">
+		<div class="navbar-innder">
+			<div class="container">
+				<a class="navbar-brand" href="/">Microblog</a>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    			<ul class="nav navbar-nav">
+    			<li class="active"><a href="/">home</a></li>
+				<%if(!locals.vary){%>
+    				<li><a href="/login" title="">login</a></li>
+    				<li><a href="/reg" title="">register</a></li>
+    				<%}else{%>
+    				<li><a href="/logout" title="">logout</a></li>
+    				<%}%>
+    			</ul>
+    			</div>
+				
+			</div>
+		</div>
+	</div>
+	<div id="container" class="container">
+	<%-body%>
+	<hr/>
+	<footer>
+		<p><a href="http://suneony.sinaapp.com" title="">suneony</a>©2014</p>
+	</footer>
+		
+	</div>
+	<script src="/javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/javascripts/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
